@@ -1,0 +1,11 @@
+.conatainer {
+  width: 350px;
+  padding: 0 20px; // 0 -> top/bottom e 20 -> left/right
+  position: relative;
+}
+
+@media (max-width: 750px) {
+  .conatainer {
+    width: 100%;
+  }
+}

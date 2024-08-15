@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-lista',
@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './lista.component.scss'
 })
 export class ListaComponent {
+
+  public addItemTarefa = signal(true);
 
 }

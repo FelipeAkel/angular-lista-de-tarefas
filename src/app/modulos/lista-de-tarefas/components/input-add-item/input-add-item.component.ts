@@ -15,7 +15,7 @@ export class InputAddItemComponent {
 
   @ViewChild('inputText') public inputText!: ElementRef;          // Pegando alterações do HTML, da propriedade #inputText
 
-  @Output() public outputListaItems = new EventEmitter<IListaItems>();    // Enviando dados para outro component
+  @Output() public outputAddListaItem = new EventEmitter<IListaItems>();    // Enviando dados para outro component
 
   public focusAndAddItem(value: string)
   {
@@ -27,7 +27,7 @@ export class InputAddItemComponent {
       const timestamp = dataAtual.getTime();
       const id = `ID ${timestamp}`;
 
-      this.outputListaItems.emit({
+      this.outputAddListaItem.emit({
         id,
         checked: false,
         value,

@@ -14,16 +14,21 @@ export class ListaComponent {
 
   public addItemTarefa = signal(true);
 
-  public getInputAddListaItem(value: IListaItems) {
-    console.log(value);
-    // Atribuindo valor ao localStorage: F12 -> Application -> Local storage -> @minha-lista
-    localStorage.setItem('@minha-lista', JSON.stringify([value]));
-  }
-
-  private setListaItems = signal<IListaItems[]>([this.parseItems()]);
+  private setListaItems = signal<IListaItems[]>(this.parseItems());
   public getListaItems = this.setListaItems.asReadonly();     // Atribuindo o item a lista, sem alteração!
 
   private parseItems() {
     return JSON.parse(localStorage.getItem('@minha-lista') || '[]');
+  }
+
+  public getInputAddListaItem(value: IListaItems) {
+    // console.log(value);
+    // Atribuindo valor ao localStorage: F12 -> Application -> Local storage -> @minha-lista
+    localStorage.setItem(
+      '@minha-lista',
+      JSON.stringify([...this.getListaItems(), value])
+    );
+
+    return this.setListaItems.set(this.parseItems());
   }
 }

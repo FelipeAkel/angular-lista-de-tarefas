@@ -31,4 +31,9 @@ export class ListaComponent {
 
     return this.setListaItems.set(this.parseItems());
   }
+
+  public deleteAllItems(){
+    localStorage.removeItem('@minha-lista');
+    return this.setListaItems.set(this.parseItems());
+  }
 }

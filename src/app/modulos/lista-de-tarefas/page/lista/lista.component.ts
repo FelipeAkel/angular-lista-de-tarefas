@@ -15,7 +15,7 @@ export class ListaComponent {
   public addItemTarefa = signal(true);
 
   private setListaItems = signal<IListaItems[]>(this.parseItems());
-  public getListaItems = this.setListaItems.asReadonly();     // Atribuindo o item a lista, sem alteração!
+  public getListaItens = this.setListaItems.asReadonly();     // Atribuindo o item a lista, sem alteração!
 
   private parseItems() {
     return JSON.parse(localStorage.getItem('@minha-lista') || '[]');
@@ -26,13 +26,13 @@ export class ListaComponent {
     // Atribuindo valor ao localStorage: F12 -> Application -> Local storage -> @minha-lista
     localStorage.setItem(
       '@minha-lista',
-      JSON.stringify([...this.getListaItems(), value])
+      JSON.stringify([...this.getListaItens(), value])
     );
 
     return this.setListaItems.set(this.parseItems());
   }
 
-  public deleteAllItems(){
+  public deleteAllItens(){
     localStorage.removeItem('@minha-lista');
     return this.setListaItems.set(this.parseItems());
   }

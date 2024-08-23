@@ -1,4 +1,4 @@
-@if(!getListaItems().length){
+@if(!getListaItens().length){
 
   <div class="container">
     <img
@@ -11,7 +11,7 @@
       <button class="btn btn-primary" (click)="addItemTarefa.set(false)">Crie uma Lista de Tarefas</button>
     } @else {
       <app-input-add-item
-        [inputListaItems]="getListaItems()"
+        [inputListaItems]="getListaItens()"
         (outputAddListaItem)="getInputAddListaItem($event)"
       ></app-input-add-item>
     }
@@ -20,16 +20,16 @@
 } @else {
 
   <app-input-add-item
-    [inputListaItems]="getListaItems()"
+    [inputListaItems]="getListaItens()"
     (outputAddListaItem)="getInputAddListaItem($event)"
   ></app-input-add-item>
 
   <main class="container">
 
-    <pre>{{ getListaItems() | json }}</pre>
+    <pre>{{ getListaItens() | json }}</pre>
   </main>
 
   <footer>
-    <button class="btn btn-danger" (click)="deleteAllItems()">Deletar Todos os Itens</button>
+    <button class="btn btn-danger" (click)="deleteAllItens()">Deletar Todos os Itens</button>
   </footer>
 }

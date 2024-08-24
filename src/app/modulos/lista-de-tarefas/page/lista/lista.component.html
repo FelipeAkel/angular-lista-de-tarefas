@@ -26,7 +26,15 @@
 
   <main class="container">
 
-    <app-input-lista-itens></app-input-lista-itens>
+    <h3>Pendentes</h3>
+    <app-input-lista-itens
+      [inputListaItens]="getListaItens()"
+    ></app-input-lista-itens>
+
+    <h3>Concluídos</h3>
+    <app-input-lista-itens
+      [inputListaItens]="getListaItens()"
+    ></app-input-lista-itens>
 
     <pre>{{ getListaItens() | json }}</pre>
   </main>

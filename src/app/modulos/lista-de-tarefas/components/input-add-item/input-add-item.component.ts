@@ -14,7 +14,7 @@ export class InputAddItemComponent {
 
   private cdr = inject(ChangeDetectorRef);
 
-  @ViewChild('inputText') public inputText!: ElementRef;          // Pegando alterações do HTML, da propriedade #inputText
+  @ViewChild('inputText') public inputText!: ElementRef;                    // Pegando alterações do HTML, da propriedade #inputText
 
   @Output() public outputAddListaItem = new EventEmitter<IListaItens>();    // Enviando dados para outro component
 
@@ -35,9 +35,6 @@ export class InputAddItemComponent {
         checked: false,
         value,
       });
-
-      // console.log({ id, checked: false, value });
-
     }
 
     return this.inputText.nativeElement.focus();

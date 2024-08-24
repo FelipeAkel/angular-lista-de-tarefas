@@ -8,6 +8,8 @@ import { InputListaItensComponent } from '../../components/input-lista-itens/inp
 // Interface
 import { IListaItens } from '../../interface/IListaItens.interface';
 
+import { ELocalStorage } from '../../enum/ELocalStora.enum';
+
 @Component({
   selector: 'app-lista',
   standalone: true,
@@ -17,20 +19,24 @@ import { IListaItens } from '../../interface/IListaItens.interface';
 })
 export class ListaComponent {
 
-  public addItemTarefa = signal(true);
-
   private setListaItems = signal<IListaItens[]>(this.parseItens());
-  public getListaItens = this.setListaItems.asReadonly();     // Atribuindo o item a lista, sem alteração!
-
   private parseItens() {
-    return JSON.parse(localStorage.getItem('@minha-lista') || '[]');
+    return JSON.parse(localStorage.getItem(ELocalStorage.MINHA_LISTA) || '[]');
+  }
+  private updateLocalStorage() {
+    return localStorage.setItem(
+      ELocalStorage.MINHA_LISTA,
+      JSON.stringify(this.setListaItems())
+    );
   }
 
+  public addItemTarefa = signal(true);
+  public getListaItens = this.setListaItems.asReadonly();     // Atribuindo o item a lista, sem alteração!
+
   public getInputAddListaItem(value: IListaItens) {
-    // console.log(value);
     // Atribuindo valor ao localStorage: F12 -> Application -> Local storage -> @minha-lista
     localStorage.setItem(
-      '@minha-lista',
+      ELocalStorage.MINHA_LISTA,
       JSON.stringify([...this.getListaItens(), value])
     );
 
@@ -62,10 +68,7 @@ export class ListaComponent {
       return oldValue;
     });
 
-    return localStorage.setItem(
-      '@minha-lista',
-      JSON.stringify(this.setListaItems())
-    );
+    return this.updateLocalStorage();
   }
 
   public updateItemDescricao(dadosItem: {id: string; value: string}) {
@@ -79,22 +82,17 @@ export class ListaComponent {
       return oldValue;
     });
 
-    return localStorage.setItem(
-      '@minha-lista',
-      JSON.stringify(this.setListaItems())
-    );
+    return this.updateLocalStorage();
   }
 
   public deleteItemId(id: string) {
-    console.log('deleteItemId', id);
     this.setListaItems.update((oldValue: IListaItens[]) => {
       return oldValue.filter((resultado) => resultado.id !== id);
     });
   }
 
   public deleteAllItens(){
-    localStorage.removeItem('@minha-lista');
+    localStorage.removeItem(ELocalStorage.MINHA_LISTA);
     return this.setListaItems.set(this.parseItens());
   }
 }
-

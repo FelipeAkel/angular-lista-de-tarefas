@@ -11,7 +11,7 @@
       <button class="btn btn-primary" (click)="addItemTarefa.set(false)">Crie uma Lista de Tarefas</button>
     } @else {
       <app-input-add-item
-        [inputListaItems]="getListaItens()"
+        [inputListaItens]="getListaItens()"
         (outputAddListaItem)="getInputAddListaItem($event)"
       ></app-input-add-item>
     }
@@ -20,11 +20,13 @@
 } @else {
 
   <app-input-add-item
-    [inputListaItems]="getListaItens()"
+    [inputListaItens]="getListaItens()"
     (outputAddListaItem)="getInputAddListaItem($event)"
   ></app-input-add-item>
 
   <main class="container">
+
+    <app-input-lista-itens></app-input-lista-itens>
 
     <pre>{{ getListaItens() | json }}</pre>
   </main>

@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, ElementRef, EventEmitter, inject, Input, Output, ViewChild, viewChild } from '@angular/core';
-
-import { IListaItems } from '../../interface/IListaItems.interface';
 import { NgClass } from '@angular/common';
+
+import { IListaItens } from '../../interface/IListaItens.interface';
 
 @Component({
   selector: 'app-input-add-item',
@@ -16,9 +16,9 @@ export class InputAddItemComponent {
 
   @ViewChild('inputText') public inputText!: ElementRef;          // Pegando alterações do HTML, da propriedade #inputText
 
-  @Output() public outputAddListaItem = new EventEmitter<IListaItems>();    // Enviando dados para outro component
+  @Output() public outputAddListaItem = new EventEmitter<IListaItens>();    // Enviando dados para outro component
 
-  @Input({ required: true }) public inputListaItems: IListaItems[] = [];
+  @Input({ required: true }) public inputListaItens: IListaItens[] = [];
 
   public focusAndAddItem(value: string)
   {

@@ -1,17 +1,17 @@
 <header
-  [ngClass]="{'has-items': inputListaItems.length}"
+  [ngClass]="{'has-items': inputListaItens.length}"
 >
-  @if(inputListaItems.length){
+  @if(inputListaItens.length){
     <h2>Minha Lista</h2>
   }
 
   <div
   >
-  <!-- [ngClass]="{ container: inputListaItems.length }" -->
+  <!-- [ngClass]="{ container: inputListaItens.length }" -->
     <label
       class="input-label-text"
       for="inputValue"
-      [ngClass]="{ 'remove-margin-bottom': !inputListaItems.length }"
+      [ngClass]="{ 'remove-margin-bottom': !inputListaItens.length }"
     >
 
       <input

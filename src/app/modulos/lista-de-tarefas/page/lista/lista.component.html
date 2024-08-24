@@ -19,37 +19,39 @@
 
 } @else {
 
-  <app-input-add-item
-    [inputListaItens]="getListaItens()"
-    (outputAddListaItem)="getInputAddListaItem($event)"
-  ></app-input-add-item>
+  <div class="container">
+    <app-input-add-item
+      [inputListaItens]="getListaItens()"
+      (outputAddListaItem)="getInputAddListaItem($event)"
+    ></app-input-add-item>
 
-  <main class="container">
+    <main class="container">
 
-    @if(listaItensStage('pendentes').length > 0) {
-      <h3>Pendentes</h3>
-      <app-input-lista-itens
-        [inputListaItens]="listaItensStage('pendentes')"
-        (outputUpdateItemCheckbox)="updateItemCheckbox($event)"
-        (outputUpdateItemDescricao)="updateItemDescricao($event)"
-        (outputDeleteItemId)="deleteItemId($event)"
-      ></app-input-lista-itens>
-    }
+      @if(listaItensStage('pendentes').length > 0) {
+        <h3>Pendentes</h3>
+        <app-input-lista-itens
+          [inputListaItens]="listaItensStage('pendentes')"
+          (outputUpdateItemCheckbox)="updateItemCheckbox($event)"
+          (outputUpdateItemDescricao)="updateItemDescricao($event)"
+          (outputDeleteItemId)="deleteItemId($event)"
+        ></app-input-lista-itens>
+      }
 
-    @if(listaItensStage('concluidas').length > 0) {
-      <h3>Concluídos</h3>
-      <app-input-lista-itens
-        [inputListaItens]="listaItensStage('concluidas')"
-        (outputUpdateItemCheckbox)="updateItemCheckbox($event)"
-        (outputUpdateItemDescricao)="updateItemDescricao($event)"
-        (outputDeleteItemId)="deleteItemId($event)"
-      ></app-input-lista-itens>
-    }
+      @if(listaItensStage('concluidas').length > 0) {
+        <h3>Concluídos</h3>
+        <app-input-lista-itens
+          [inputListaItens]="listaItensStage('concluidas')"
+          (outputUpdateItemCheckbox)="updateItemCheckbox($event)"
+          (outputUpdateItemDescricao)="updateItemDescricao($event)"
+          (outputDeleteItemId)="deleteItemId($event)"
+        ></app-input-lista-itens>
+      }
 
-    <pre>{{ getListaItens() | json }}</pre>
-  </main>
+      <!-- <pre>{{ getListaItens() | json }}</pre> -->
+    </main>
 
-  <footer>
-    <button class="btn btn-danger" (click)="deleteAllItens()">Deletar Todos os Itens</button>
-  </footer>
+    <footer>
+      <button class="btn btn-danger" (click)="deleteAllItens()">Deletar Todos os Itens</button>
+    </footer>
+  </div>
 }

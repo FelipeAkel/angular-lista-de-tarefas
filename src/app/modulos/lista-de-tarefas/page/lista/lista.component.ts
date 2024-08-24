@@ -10,6 +10,8 @@ import { IListaItens } from '../../interface/IListaItens.interface';
 
 import { ELocalStorage } from '../../enum/ELocalStora.enum';
 
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-lista',
   standalone: true,
@@ -86,13 +88,39 @@ export class ListaComponent {
   }
 
   public deleteItemId(id: string) {
-    this.setListaItems.update((oldValue: IListaItens[]) => {
-      return oldValue.filter((resultado) => resultado.id !== id);
+    Swal.fire({
+      title: "Deletar Item Selecionado?",
+      text: "Após confirmar não será possível recuperar o dado.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sim, deletar item!",
+      cancelButtonText: "Não, cancelar!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.setListaItems.update((oldValue: IListaItens[]) => {
+          return oldValue.filter((resultado) => resultado.id !== id);
+        });
+      }
     });
   }
 
   public deleteAllItens(){
-    localStorage.removeItem(ELocalStorage.MINHA_LISTA);
-    return this.setListaItems.set(this.parseItens());
+    Swal.fire({
+      title: "Deletar Todos os Registros?",
+      text: "Após confirmar não será possível recuperar os dados.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sim, delete tudo!",
+      cancelButtonText: "Não, cancelar!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        localStorage.removeItem(ELocalStorage.MINHA_LISTA);
+        return this.setListaItems.set(this.parseItens());
+      }
+    });
   }
 }

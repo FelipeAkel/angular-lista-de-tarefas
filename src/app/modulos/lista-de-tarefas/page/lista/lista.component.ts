@@ -50,6 +50,41 @@ export class ListaComponent {
     });
   }
 
+  public updateItemCheckbox(dadosItem: { id: string; checked: boolean; }) {
+    this.setListaItems.update((oldValue: IListaItens[]) => {
+      oldValue.filter((resultado) => {
+        if(resultado.id === dadosItem.id) {
+          resultado.checked = dadosItem.checked;
+        }
+        return resultado;
+      });
+
+      return oldValue;
+    });
+
+    return localStorage.setItem(
+      '@minha-lista',
+      JSON.stringify(this.setListaItems())
+    );
+  }
+
+  public updateItemDescricao(dadosItem: {id: string; value: string}) {
+    this.setListaItems.update((oldValue: IListaItens[]) => {
+      oldValue.filter((resultado) => {
+        if(resultado.id === dadosItem.id){
+          resultado.value = dadosItem.value;
+        }
+        return resultado;
+      });
+      return oldValue;
+    });
+
+    return localStorage.setItem(
+      '@minha-lista',
+      JSON.stringify(this.setListaItems())
+    );
+  }
+
   public deleteAllItens(){
     localStorage.removeItem('@minha-lista');
     return this.setListaItems.set(this.parseItens());

@@ -37,6 +37,19 @@ export class ListaComponent {
     return this.setListaItems.set(this.parseItens());
   }
 
+  public listaItensStage(value: 'pendentes' | 'concluidas'){
+    // Buscando somente os resultados filtrados com o checkted
+    return this.getListaItens().filter((resultado: IListaItens) => {
+      if( value === 'pendentes') {
+        return !resultado.checked;  // checked = false;
+      } else if( value === 'concluidas') {
+        return resultado.checked;   // checked = true;
+      } else {
+        return resultado;
+      }
+    });
+  }
+
   public deleteAllItens(){
     localStorage.removeItem('@minha-lista');
     return this.setListaItems.set(this.parseItens());

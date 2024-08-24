@@ -8,6 +8,8 @@
   flex-direction: column;
 
   div.container {
+    width: 600px;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,9 +38,16 @@
     }
 
     &::-webkit-scrollbar-thumb {
-      background: var(--primary);
+      background: var(--grey);
       border-radius: 5px;
     }
+  }
+
+  .titulo-pendente {
+    color: var(--yellow);
+  }
+  .titulo-concluido {
+    color: var(--primary);
   }
 
   footer {

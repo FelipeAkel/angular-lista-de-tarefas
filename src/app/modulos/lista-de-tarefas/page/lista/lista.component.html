@@ -28,7 +28,7 @@
     <main class="container">
 
       @if(listaItensStage('pendentes').length > 0) {
-        <h3>Pendentes</h3>
+        <h3 class="titulo-pendente">Pendentes</h3>
         <app-input-lista-itens
           [inputListaItens]="listaItensStage('pendentes')"
           (outputUpdateItemCheckbox)="updateItemCheckbox($event)"
@@ -38,7 +38,7 @@
       }
 
       @if(listaItensStage('concluidas').length > 0) {
-        <h3>Concluídos</h3>
+        <h3 class="titulo-concluido">Concluídos</h3>
         <app-input-lista-itens
           [inputListaItens]="listaItensStage('concluidas')"
           (outputUpdateItemCheckbox)="updateItemCheckbox($event)"

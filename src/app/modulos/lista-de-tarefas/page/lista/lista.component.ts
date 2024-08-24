@@ -85,6 +85,13 @@ export class ListaComponent {
     );
   }
 
+  public deleteItemId(id: string) {
+    console.log('deleteItemId', id);
+    this.setListaItems.update((oldValue: IListaItens[]) => {
+      return oldValue.filter((resultado) => resultado.id !== id);
+    });
+  }
+
   public deleteAllItens(){
     localStorage.removeItem('@minha-lista');
     return this.setListaItems.set(this.parseItens());

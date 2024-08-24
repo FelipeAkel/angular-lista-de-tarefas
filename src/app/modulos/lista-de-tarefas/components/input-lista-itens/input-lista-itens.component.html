@@ -14,7 +14,7 @@
       (input)="updateItemDescricao(item.id, inputValue.value)"
     >
 
-    <button class="btn btn-danger-circle" title="Excluir item" ></button>
+    <button class="btn btn-danger-circle" title="Excluir item" (click)="deleteItemId(item.id)" ></button>
 
   </label>
 }

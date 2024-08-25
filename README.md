@@ -1,27 +1,30 @@
-# AngularListaDeTarefas
+<p align="center"><img src="src/assets/img/desktop-mobile-lista-de-tarefas-angular.png" width="400"></p>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
+## Sobre o Angular Lista De Tarefas
 
-## Development server
+A Lista de Tarefas trata-se de um programa desenvolvido para consolidar estudo/conhecimento em um projeto prático com o framework front-end, Angular.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Inicialmente, o programa possibilita criar uma lista de itens, tarefas que são gerenciados pelo usuário. Dessa forma, o usuário poderá 'cadastrar', 'editar' e 'excluir' seus dados. Além disso, poderá atualizar os status dos registros para 'pendentes' e 'concluídos'.
 
-## Code scaffolding
+Destaca-se, que o layout foi desenvolvido para ser possível a navegação em dispositivos Desktops, tela de computadores, e Mobile, tela de celulares. Consequentemente, é importante frizar que os códigos de estilização, SCSS, foram elaborados do zero. Com isso, garante-se uma navegação rápida e com melhor experiência do usuário. 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Tela da Página
+- Lista de Tarefas [IMG](src/assets/img/lista-de-tarefas-angular.png)
 
-## Build
+## Tecnologias utilizadas
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Angular
+- **[Angular CLI Versão 17.3.8.](https://github.com/angular/angular-cli)**
 
-## Running unit tests
+## Construção do Ambiente Local
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Para configurar o ambiente local do Sistema, é essecial seguir o passa a passo abaixo:
 
-## Running end-to-end tests
+    1. Faça o clone do projeto via git;
+    2. Usando o cmd ou terminal, vá até a pasta do onde clonou o projeto;
+    3. Execute 'composer install';
+    4. Execute o comando 'ng serve';
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Licença
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+A Lista de Terefas foi desenvolvido em Angular e utiliza a licença MIT.
